@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
+    function index()
+    {
+        $data = Session::get('token');
+
+        if(strlen($data) > 50){
+            return redirect('profile');
+        }else{
+            return view('register');
+        }
+    }
+
     function registerUser(Request $req)
     {
         $validated = $req->validate([
@@ -33,7 +45,7 @@ class RegisterController extends Controller
             $token = $response['token'];
             return view("profile", ['token' => $token]);
         }else{
-        return 'Some errors';
+            return 'Some errors';
         } 
     }
 }

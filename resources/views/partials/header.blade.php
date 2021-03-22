@@ -1,3 +1,6 @@
+<?php
+use Illuminate\Support\Facades\Session;
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -48,12 +51,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+    @if ( session()->get('token') )
+    <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    @else
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
-      </li>
+      </li>    
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
+      @endif
+      
     </ul>
   </div>
 </nav>
