@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Session;
 
         <style>
         .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            line-height: 60px;
-            background-color: #f5f5f5;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          line-height: 60px;
+          background-color: #f5f5f5;
         }
 
         form {
