@@ -13,7 +13,7 @@ class RegisterController extends Controller
     {
         $data = Session::get('token');
 
-        if(strlen($data) > 50){
+        if($data){
             return redirect('profile');
         }else{
             return view('register');
