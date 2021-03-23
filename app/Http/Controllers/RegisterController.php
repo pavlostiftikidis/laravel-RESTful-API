@@ -43,6 +43,7 @@ class RegisterController extends Controller
    
         if($response != NULL){
             $token = $response['token'];
+            Session::put('token',$token);
             return view("profile", ['token' => $token]);
         }else{
             return 'Some errors';
